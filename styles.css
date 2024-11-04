@@ -1,0 +1,174 @@
+/* Cơ bản */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    scroll-behavior: smooth; /* Hiệu ứng lướt mượt mà */
+    min-height: 100vh; 
+}
+
+html {
+    scroll-behavior: smooth; /* Giữ lướt mượt mà */
+}
+
+section {
+    scroll-snap-align: start; /* Bắt đầu từ đầu mỗi section */
+}
+header {
+    color: rgb(0, 123, 255);
+    margin-left: 200px;
+    padding: 80px;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    transition: background-image 1s ease-in-out; /* Hiệu ứng chuyển đổi mờ dần */
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 45px;
+}
+
+#content {
+    margin-left: 200px;
+    padding: 20px;
+}
+
+section {
+    padding: 20px;
+    margin: 20px 0;
+}
+
+
+
+#footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative; /* Thay đổi vị trí tương đối */
+    width: 98%;
+    bottom: 0; /* Đặt ở dưới cùng */
+}
+
+
+/* Khi cuộn xuống gần cuối trang */
+body:has(#footer:target) #footer {
+    transform: translateY(0); /* Hiển thị footer */
+}
+
+/* Thêm padding cho nội dung */
+#content {
+    padding-bottom: 40px; /* Đảm bảo nội dung không bị che khuất bởi footer */
+}
+
+/* Sidebar (Menu) */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: rgb(210, 202, 202);
+    border-bottom-right-radius: 70px;
+
+    padding-top: 20px;
+}
+
+#sidebar ul {
+    margin-top: 30px;
+    list-style-type: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    margin: 15px 0;
+}
+
+#sidebar ul li a {
+    position: relative; /* Để dùng pseudo-elements */
+    color: rgb(34, 34, 85);
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    background-color: transparent; /* Bình thường không có màu nền */
+    border-radius: 10px;
+    overflow: hidden; /* Đảm bảo các pseudo-elements không tràn ra ngoài */
+    transition: background-color 0.4s ease; /* Hiệu ứng nền */
+}
+
+#sidebar ul li a::before, #sidebar ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #6dbf73);
+    transition: width 0.4s ease;
+}
+
+#sidebar ul li a::before {
+    top: 0;
+    left: 0;
+    height: 2px; /* Độ dày của đường sáng */
+    width: 100%; /* Ban đầu là 100% để chạy ngang */
+    background: linear-gradient(90deg, transparent, #6dbf73, transparent);
+    animation: animateLine 1.5s linear infinite;
+}
+
+#sidebar ul li a::after {
+    bottom: 0;
+    right: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, #6dbf73, transparent);
+    animation: animateLine 1.5s linear infinite reverse; /* Đảo ngược để chạy ngược chiều */
+}
+
+#sidebar ul li a:hover {
+    background-color: rgba(119, 136, 153, 0.3); /* Màu nền khi hover */
+}
+
+
+
+
+@keyframes animateLine {
+    0% {
+        width: 0;
+        left: 0;
+    }
+    50% {
+        width: 100%;
+        left: 0;
+    }
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+img{
+    width: 60%;
+    justify-content: center;
+    margin: 150px;
+    margin-top: 20px;
+    margin-left: 300px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9);
+    border-radius: 5px;
+}
+
+
+p{
+    font-size: 18px;
+}
+h2{
+    font-size: 30px;
+}
+
+
+
+
